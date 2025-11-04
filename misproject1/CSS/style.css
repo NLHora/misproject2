@@ -1,0 +1,299 @@
+/* ===== VARIABLES ===== */
+:root {
+   --primary-color: #004080;    /* Dark Blue */
+   --secondary-color: #a0b2c5;  /* Light Blue */
+   --text-color: #333;
+   --background-color: #f0f8ff; /* Light background */
+   --gray: #e0e0e0;
+}
+
+/* ===== RESET & BASE STYLES ===== */
+* {
+   margin: 0;
+   padding: 0;
+   box-sizing: border-box;
+}
+
+body {
+   background-color: #f5f9ff;
+   text-align: center;
+   font-family: Arial, Helvetica, sans-serif;
+}
+/* ===== BOXED LAYOUT ===== */
+
+.back-button {
+    display: inline-block;
+    padding: 0.8rem 1.5rem;
+    background: var(--primary-color);
+    color: white;
+    text-decoration: none;
+    border-radius: 25px;
+    font-weight: 600;
+    margin-bottom: 1rem;
+    transition: all 0.3s ease;
+
+    /* NEW: align left with container padding */
+    text-align: left;
+}
+
+/* Keep the hover effect */
+.back-button:hover {
+    background: var(--secondary-color);
+    transform: scale(1.05);
+}
+.container {
+    max-width: 1000px;
+    margin: 2rem auto;        /* center container on page */
+    padding: 2rem;
+    background-color: white;
+    border-radius: 20px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    position: relative;       /* allows absolute positioning for button */
+    text-align: left;       /* header centered */
+}
+.horizontal-box-container {
+    max-width: 1000px;       /* same as main container */
+    margin: 2rem auto;       /* center horizontally */
+    padding: 2rem;           /* same padding as main content */
+    box-sizing: border-box;
+}
+
+/* Flex layout for the two boxes */
+.horizontal-boxes {
+    display: flex;
+    justify-content: space-between;
+    gap: 2rem;
+    width: 100%;
+}
+
+/* Each content box */
+.horizontal-boxes .content-box {
+    flex: 1;                 /* equal width */
+    display: flex;
+    flex-direction: column;  /* image above text */
+    align-items: center;
+    background-color: #f9f9f9;  /* individual box background */
+    padding: 1.5rem;
+    border-radius: 15px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+/* Images inside boxes */
+.horizontal-boxes .content-box img {
+    width: 100%;
+    max-width: 250px;
+    border-radius: 10px;
+    margin-bottom: 1rem;
+}
+
+/* Text inside boxes */
+.horizontal-boxes .content-box .box-text {
+    text-align: center;
+}
+
+
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes float {
+  0% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+  100% { transform: translateY(0); }
+}
+
+
+/* ===== HEADER ===== */
+header {
+   animation: fadeIn 1s ease-out;
+   animation-delay: 0.3s;
+   animation-fill-mode: both;
+   background-color: var(--primary-color);
+   color: white;
+   padding: 2rem 1rem;
+   border-radius: 20px;
+   box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+   max-width: 1000px;
+   margin: 1.5rem auto;
+}
+
+header h1 {
+   animation: float 3s ease-in-out;
+   font-size: 3rem;
+   margin: 0;
+   text-align: center;
+}
+
+
+/* ===== NAVIGATION ===== */
+nav {
+   background: none; /* no background bar */
+   padding: 1rem 0;
+   text-align: center;
+}
+
+
+nav ul {
+   list-style: none;
+   display: flex;
+   justify-content: center;
+   gap: 1rem;
+   flex-wrap: wrap;
+   margin: 0;
+   padding: 0;
+}
+
+nav a {
+   background-color: var(--primary-color);
+   color: white;
+   text-decoration: none;
+   font-weight: bold;
+   padding: 0.6rem 1.2rem;
+   border-radius: 25px; /* rounded buttons */
+   transition: all 0.3s ease;
+   box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+nav a:hover {
+   background-color: var(--secondary-color);
+   color: var(--primary-color);
+   box-shadow: 0 3px 8px rgba(0,0,0,0.2);
+}
+.navbar {
+  animation: fadeIn 0.8s ease-out;
+}
+
+/* ===== MAIN CONTENT ===== */
+main {
+   animation: fadeIn 1.2s ease-out;
+  animation-delay: 0.6s;
+  animation-fill-mode: both;
+   background-color: white;
+   border-radius: 20px;
+   box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+   max-width: 1000px;
+   margin: 2rem auto;
+   padding: 2rem;
+   text-align: left;
+   overflow: auto; /* makes sure box grows to fit the floated image */
+}
+
+/* Optional: Give main headings some pop */
+
+
+main h1 {
+   color: var(--primary-color);
+   margin-bottom: 1rem;
+   font-size: 2.5rem;
+}
+
+main h2 {
+   color: var(--primary-color);
+   margin-bottom: 1rem;
+}
+h3{
+   color: var(--primary-color);
+   margin-bottom: 1rem;
+}
+
+video {
+	display: block;
+	margin: 2rem auto;
+	width: 500px; /* set exact size */
+	max-width: 100%; /* keeps it responsive */
+	border-radius: 10px;
+	box-shadow: 0 0 10px rgba(0,0,0,0.2);
+}
+
+/* Paragraphs */
+main p {
+   margin-bottom: 1.5rem;
+}
+
+/* Images */
+img {
+   max-width: 100%;
+   height: auto;
+   border-radius: 8px;
+   margin: 1rem 0;
+}
+img.resume {
+	max-width: 80%;
+	height: auto;
+	border: 2px solid #ccc;
+	border-radius: 10px;
+	box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+.headshot {
+   float: left;
+   width: 200px;
+   height: auto;
+   margin: 0 20px 10px 0;
+   border-radius: 15px;
+   box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+}
+
+
+/* ===== FOOTER ===== */
+footer {
+   background-color: none;
+   text-align: center;
+   padding: 2rem;
+   margin-top: 4rem;
+}
+
+footer a {
+   color: var(--primary-color);
+   text-decoration: none;
+}
+
+footer a:hover {
+   text-decoration: underline;
+}
+
+/* ===== RESPONSIVE DESIGN ===== */
+@media screen and (max-width: 768px) {
+    .horizontal-boxes {
+        flex-direction: column;
+        gap: 1.5rem;
+    }
+}
+/* Mobile phones */
+@media screen and (max-width: 768px) {
+   nav ul {
+       flex-direction: column;
+       gap: 0.5rem;
+   }
+
+   main {
+       padding: 0 1rem;
+   }
+
+   header h1 {
+       font-size: 2rem;
+   }
+
+   main h1 {
+       font-size: 2rem;
+   }
+
+   main h2 {
+       font-size: 1.5rem;
+   }
+}
+
+/* Tablets */
+@media screen and (min-width: 769px) and (max-width: 1024px) {
+   nav ul {
+       gap: 1rem;
+    
+   }
+}
